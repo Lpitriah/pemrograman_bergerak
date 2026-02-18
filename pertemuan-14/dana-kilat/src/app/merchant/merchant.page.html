@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true">
+  <div class="saldo-card">
+    <h2>Merchant QR Generator</h2>
+
+    <ion-item>
+      <ion-label position="stacked">Nama Merchant</ion-label>
+      <ion-input [(ngModel)]="namaMerchant"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nominal</ion-label>
+      <ion-input [(ngModel)]="nominal"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="generateQR()">Generate QR</ion-button>
+  </div>
+
+  <div *ngIf="qrData" class="qr-box">
+    <qrcode [qrdata]="qrData" [width]="200"></qrcode>
+  </div>
+</ion-content>

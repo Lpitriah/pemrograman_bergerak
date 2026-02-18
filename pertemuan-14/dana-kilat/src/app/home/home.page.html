@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true">
+  <div style="padding: 20px 20px 0 20px; display:flex; justify-content: space-between; color: white;">
+    <div style="font-weight: bold; font-size: 18px;">DanaKilat</div>
+    <ion-icon name="notifications-outline" style="font-size:24px;"></ion-icon>
+  </div>
+
+  <div class="saldo-card">
+    <h2>Saldo Aktif</h2>
+    <div class="nominal"> Rp {{ saldo | number:'1.0-0'}}</div>
+    <div style="display: flex; justify-content: cente-r; gap: 15px; margin-top: 15px;">
+      <ion-button size="small" shape="round " fill="outline">+ Isi Saldo </ion-button>
+      <ion-button size="small" shape="round " fill="outline">Kirim</ion-button>
+    </div>
+  </div>
+
+  <ion-grid class="menu-grid">
+    <ion-row>
+      <ion-col size="3">
+        <div class="icon-box"><ion-icon name="flash"></ion-icon></div>
+        <span>Pulsa</span>
+      </ion-col>
+      <ion-col size="3">
+        <div class="icon-box"><ion-icon name="water"></ion-icon></div>
+        <span>Air</span>
+      </ion-col>
+      <ion-col size="3">
+        <div class="icon-box"><ion-icon name="game-controller"></ion-icon></div>
+        <span>Games</span>
+      </ion-col>
+      <ion-col size="3">
+        <div class="icon-box"><ion-icon name="apps"></ion-icon></div>
+        <span>Lainnya</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-button routerlink="/merchant" expand="block">Mode Merchant</ion-button>
+  </ion-grid>
+
+  <div style="padding: 20px;">
+    <h3 style="font-size: 16px; font-weight: bold;"> Transaksi Terbaru </h3>
+    <ion-list lines="none" style="background: transparent;">
+      <ion-item *ngFor="let item of history" style="--backgorund: white; border-radius: 10px; margin-bottom: 10px;">
+        <ion-icon name="arrow-up-circle" color="danger" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Pembayaran QRIS</h3>
+          <p>{{ item.waktu}}</p>
+        </ion-label>
+        <ion-note slot="end" color="dark">-Rp {{ item.nominal | number }}</ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button class="scan-btn" color="primary" (click)="scanQR()">
+      <ion-icon name="scan-outline" style="font-size: 30px;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
