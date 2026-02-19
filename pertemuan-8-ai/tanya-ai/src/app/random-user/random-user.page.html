@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title> Random User Generator </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="generateUser()" [disabled]= "isLoading">Generate User </ion-button>
+  <ion-card *ngIf="user">
+    <ion-img [src] ="user.picture.large"></ion-img>
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ user.name.first }} {{ user.name.last }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Email:{{user.email}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

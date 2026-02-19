@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Live Grammar Checker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-textarea
+    placeholder="Type your English sentence here..."
+    [(ngModel)]="textInput"
+    (ionInput)="onTextChange()">
+  </ion-textarea>
+
+  <ion-card *ngIf="result">
+    <ion-card-content>
+      <p><strong>Status:</strong> {{ result.status }}</p>
+      <p><strong>Correction:</strong> {{ result.correction }}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
