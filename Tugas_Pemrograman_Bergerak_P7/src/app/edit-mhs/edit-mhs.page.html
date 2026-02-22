@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Data Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Nama Lengkap</ion-label>
+    <ion-input [(ngModel)]="nama" type="text" placeholder="Masukkan nama"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">NIM</ion-label>
+    <ion-input [(ngModel)]="nim" type="text" placeholder="Masukkan NIM"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Program Studi</ion-label>
+    <ion-input [(ngModel)]="jurusan" type="text" placeholder="Masukkan prodi"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="warning" (click)="simpan()" style="margin-top: 20px;">
+    Perbarui Data
+  </ion-button>
+
+  <ion-button expand="block" fill="outline" color="medium" (click)="batal()">
+    Batal
+  </ion-button>
+</ion-content>
